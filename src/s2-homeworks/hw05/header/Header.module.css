@@ -1,8 +1,35 @@
-.burgerMenuIcon {
+.header {
+    position: fixed;       /* Фиксируем хэдер на экране */
+    top: 0;                /* Прижимаем к самому верху */
+    left: 0;               /* Прижимаем к левому краю */
+    width: 100%;           /* Растягиваем на всю ширину экрана */
+    height: 60px;          /* Четкая высота шапки */
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  box-sizing: border-box;
+  box-shadow: 0 0 2px 0 rgba(29, 33, 38, 0.1), 0 0 40px 0 rgba(29, 33, 38, 0.13);
+  background-color: #fff;
+  z-index: 10;
 }
 
-.header {
+.burgerMenuIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .header h1 {
+  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  color: #000000;
+  font-weight: 600;
+  margin: 0;
+}
+
+:global(body) {
+  padding-top: 60px !important;
+  box-sizing: border-box;
 }
