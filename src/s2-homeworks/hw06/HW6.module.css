@@ -1,5 +1,37 @@
 .buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
 }
 
 .editableSpanContainer {
+
+}
+
+.buttonsContainer button:first-child {
+  border-radius: 3px;
+  padding: 5px 24px;
+  width: 116px;
+  height: 30px;
+  background-color: #06c;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  color: #fff;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.buttonsContainer button:last-child {
+  border: 1px solid #06c;
+  border-radius: 3px;
+  padding: 5px 24px;
+  width: 128px;
+  height: 30px;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  color: #06c;
+  font-family: "Montserrat", sans-serif;
 }
