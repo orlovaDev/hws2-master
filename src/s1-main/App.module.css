@@ -1,10 +1,10 @@
 .App {
-  --header_height: 60px;
+  /*--header_height: 5px;*/
   display: flex;
   flex-direction: column;
   justify-content: center; /* Центрирует содержимое строго по вертикали */
   width: 100%;
-  min-height: calc(100vh - var(--header_height));
+  /*min-height: calc(100vh - var(--header_height));*/
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@
   border-bottom: 1px solid #E3E5E5;
   margin-top: auto;
   margin-bottom: auto;
-  padding: 24px 70px 16px 70px;
+  padding: 24px 70px 150px 70px;
 }
 
 .hwTitle {
