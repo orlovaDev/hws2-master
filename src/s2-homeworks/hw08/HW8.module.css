@@ -1,23 +1,48 @@
-.item {
-}
-
-.item:last-of-type {
-}
-
-.users {
+.container {
+  width: 610px;
 }
 
 .buttonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
-.container {
+.users {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .thead {
+  background-color: #EFEFEF;
+  font-weight: 600;
+  text-align: left;
+}
+
+.thead td,
+.item td {
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.item {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.item:last-of-type {
+  border-bottom: none;
 }
 
 .nameCol {
+  width: 70%;
+  color: #333333;
 }
 
 .ageCol {
+  width: 30%;
+  font-weight: bold;
+  color: #000000;
 }
