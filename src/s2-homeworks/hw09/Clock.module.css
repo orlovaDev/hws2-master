@@ -1,14 +1,39 @@
 .buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border-radius: 3px;
+  /*padding: 5px 24px;*/
+  width: 82px;
+  height: 30px;
+  background-color: #06c;;
+}
+
+.buttonsContainer button:disabled {
+  cursor: not-allowed; /* Курсор в виде перечеркнутого круга */
+  opacity: 0.4;
 }
 
 .clock {
+
 }
 
 .watch {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000;
+  padding-bottom: 8px;
 }
 
 .watch strong {
+  font-weight: 600;
 }
 
 .more {
+  padding-bottom: 55px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
 }
