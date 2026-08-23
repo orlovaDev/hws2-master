@@ -6,12 +6,6 @@
   /*padding: 5px 24px;*/
   width: 82px;
   height: 30px;
-  background-color: #06c;;
-}
-
-.buttonsContainer button:disabled {
-  cursor: not-allowed; /* Курсор в виде перечеркнутого круга */
-  opacity: 0.4;
 }
 
 .clock {
