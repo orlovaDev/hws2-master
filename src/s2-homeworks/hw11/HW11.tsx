@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import s from './HW11.module.css'
 import s2 from '../../s1-main/App.module.css'
-import { restoreState } from '../hw06/localStorage/localStorage'
+import {restoreState, saveState} from '../hw06/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 
 /*
@@ -20,11 +20,12 @@ function HW11() {
       if (Array.isArray(value)) {
         setValue1(value[0])
         setValue2(value[1])
-        // saveState('hw11-value1', value[0]) // расскомментируй, если тесты требуют сохранения в localStorage
-        // saveState('hw11-value2', value[1])
+        saveState('hw11-value1', value[0])
+        saveState('hw11-value2', value[1])
       } else {
         setValue1(value)
         // saveState('hw11-value1', value)
+        saveState('hw11-value1', value)
       }
     }
 
