@@ -20,12 +20,11 @@ function HW11() {
       if (Array.isArray(value)) {
         setValue1(value[0])
         setValue2(value[1])
-        saveState('hw11-value1', value[0])
-        saveState('hw11-value2', value[1])
+        // saveState('hw11-value1', value[0])
+        // saveState('hw11-value2', value[1])
       } else {
         setValue1(value)
         // saveState('hw11-value1', value)
-        saveState('hw11-value1', value)
       }
     }
 
