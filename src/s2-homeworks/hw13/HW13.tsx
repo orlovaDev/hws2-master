@@ -42,25 +42,25 @@ const HW13 = () => {
         setText(  "...всё ок)\nкод 200 - обычно означает что скорее всего всё ок)")
         setInfo('')
       })
-      .catch((e) => {
+      .catch(() => {
         // дописать
         if (x === false) {
           setCode('Ошибка 500!')
           setImage(error500)
           // дописать
-          setText(e || "эмитация ошибки на сервере\nошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)")
+          setText( "эмитация ошибки на сервере\nошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)")
           setInfo('')
         } else if (x === undefined) {
           setCode('Ошибка 400!')
           setImage(error400)
           // дописать
-          setText(e || "Ты не отправил success в body вообще!\nошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!")
+          setText( "Ты не отправил success в body вообще!\nошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!")
           setInfo('')
         } else {
           setCode('Error!')
           setImage(errorUnknown)
           // дописать
-          setText(e || "Network Error\nAxiosError")
+          setText( "Network Error\nAxiosError")
           setInfo('')
         }
       })
