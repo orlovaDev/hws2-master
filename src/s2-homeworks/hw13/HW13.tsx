@@ -15,100 +15,132 @@ import errorUnknown from './images/error.svg'
 * */
 
 const HW13 = () => {
-    const [code, setCode] = useState('')
-    const [text, setText] = useState('')
-    const [info, setInfo] = useState('')
-    const [image, setImage] = useState('')
+  const [code, setCode] = useState('')
+  const [text, setText] = useState('')
+  const [info, setInfo] = useState('')
+  const [image, setImage] = useState('')
 
-    const send = (x?: boolean | null) => () => {
-        const url =
-            x === null
-                ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://samurai.it-incubator.io/api/3.0/homework/test'
+  const isLoading = info === '...loading'
 
-        setCode('')
-        setImage('')
-        setText('')
-        setInfo('...loading')
+  const send = (x?: boolean | null) => () => {
+    const url =
+      x === null
+        ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
+        : 'https://samurai.it-incubator.io/api/3.0/homework/test'
 
-        axios
-            .post(url, {success: x})
-            .then((res) => {
-                setCode('Код 200!')
-                setImage(success200)
-                // дописать
+    setCode('')
+    setImage('')
+    setText('')
+    setInfo('...loading')
 
-            })
-            .catch((e) => {
-                // дописать
+    axios
+      .post(url, {success: x})
+      .then((res) => {
+        setCode('Код 200!')
+        setImage(success200)
+        // дописать
+        setText("...всё ок)\nкод 200 - обычно означает что скорее всего всё ок)")
+        setInfo('')
+      })
+      .catch((e) => {
+        // дописать
+        if (x === false) {
+          setCode('Ошибка 500!')
+          setImage(error500)
+          // дописать
+          setText("эмитация ошибки на сервере\nошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)")
+          setInfo('')
+        } else if (x === undefined) {
+          setCode('Ошибка 400!')
+          setImage(error400)
+          // дописать
+          setText("Ты не отправил success в body вообще!\nошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!")
+          setInfo('')
+        } else {
+          setCode('Error!')
+          setImage(errorUnknown)
+          // дописать
+          setText("Network Error\nAxiosError")
+          setInfo('')
+        }
+      })
+  }
 
-            })
-    }
+  return (
+    <div id={'hw13'}>
+      <div className={s2.hwTitle}>Homework #13</div>
 
-    return (
-        <div id={'hw13'}>
-            <div className={s2.hwTitle}>Homework #13</div>
-
-            <div className={s2.hw}>
-                <div className={s.buttonsContainer}>
-                    <SuperButton
-                        id={'hw13-send-true'}
-                        onClick={send(true)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send true
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-false'}
-                        onClick={send(false)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send false
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send undefined
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-null'}
-                        onClick={send(null)} // имитация запроса на не корректный адрес
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send null
-                    </SuperButton>
-                </div>
-
-                <div className={s.responseContainer}>
-                    <div className={s.imageContainer}>
-                        {image && <img src={image} className={s.image} alt="status"/>}
-                    </div>
-
-                    <div className={s.textContainer}>
-                        <div id={'hw13-code'} className={s.code}>
-                            {code}
-                        </div>
-                        <div id={'hw13-text'} className={s.text}>
-                            {text}
-                        </div>
-                        <div id={'hw13-info'} className={s.info}>
-                            {info}
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div className={s2.hw}>
+        <div className={s.buttonsContainer}>
+          <SuperButton
+            id={'hw13-send-true'}
+            onClick={send(true)}
+            xType={'secondary'}
+            disabled={isLoading}
+          >
+            Send true
+          </SuperButton>
+          <SuperButton
+            id={'hw13-send-false'}
+            onClick={send(false)}
+            xType={'secondary'}
+           disabled={isLoading}
+          >
+            Send false
+          </SuperButton>
+          <SuperButton
+            id={'hw13-send-undefined'}
+            onClick={send(undefined)}
+            xType={'secondary'}
+            // дописать
+            disabled={isLoading}
+          >
+            Send undefined
+          </SuperButton>
+          <SuperButton
+            id={'hw13-send-null'}
+            onClick={send(null)} // имитация запроса на не корректный адрес
+            xType={'secondary'}
+            // дописать
+            disabled={isLoading}
+          >
+            Send null
+          </SuperButton>
         </div>
-    )
+
+        <div className={s.responseContainer}>
+          <div className={s.imageContainer}>
+            {image && <img
+              src={image}
+              className={s.image}
+              alt="status"
+            />}
+          </div>
+
+          <div className={s.textContainer}>
+            <div
+              id={'hw13-code'}
+              className={s.code}
+            >
+              {code}
+            </div>
+            <div
+              id={'hw13-text'}
+              className={s.text}
+            >
+              {text}
+            </div>
+            <div
+              id={'hw13-info'}
+              className={s.info}
+            >
+              {info}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default HW13
