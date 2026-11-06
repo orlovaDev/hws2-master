@@ -16,22 +16,14 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     page, itemsCountForPage, totalCount, onChange, id = 'hw15',
   }
 ) => {
-  // Вычисляем количество страниц на основе общего количества элементов и элементов на страницу
-  // Используем Math.ceil, чтобы округлить в большую сторону (например, 11 элементов по 4 на страницу = 3 страницы)
   const lastPage = Math.ceil(totalCount / itemsCountForPage) || 1
 
   const onChangeCallback = (event: React.ChangeEvent<unknown>, newPage: number) => {
-    // Передаем новую страницу и текущее количество элементов в родительский компонент
     onChange(newPage, itemsCountForPage)
   }
 
-  const onChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    // Получаем новое количество строк из select (приводим к числу)
-    const newCount = +event.currentTarget.value
-
-    // При изменении количества строк на странице принято сбрасывать пагинацию на 1 страницу,
-    // чтобы избежать ситуации, когда текущая страница выходит за рамки нового диапазона
-    onChange(1, newCount)
+  const onChangeSelect = (newCount: any) => {
+    onChange(1, +newCount)
   }
 
   return (
@@ -39,7 +31,6 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
       <Pagination
         id={id + '-pagination'}
         sx={{
-          // Базовые стили для выравнивания и кастомизации кнопок Material UI
           display: 'inline-block',
           '& .MuiPaginationItem-root': {
             borderRadius: '4px',
@@ -60,8 +51,8 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
       />
 
       <span className={s.text1}>
-                показать
-            </span>
+        показать
+      </span>
 
       <SuperSelect
         id={id + '-pagination-select'}
@@ -71,12 +62,12 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
           {id: 7, value: 7},
           {id: 10, value: 10},
         ]}
-        onChange={onChangeSelect}
+        onChangeOption={onChangeSelect}
       />
 
       <span className={s.text2}>
-                строк в таблице
-            </span>
+        строк в таблице
+      </span>
     </div>
   )
 }

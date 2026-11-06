@@ -1,11 +1,19 @@
 .pagination {
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .text1 {
-
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
 }
 
 .text2 {
-
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
 }
+

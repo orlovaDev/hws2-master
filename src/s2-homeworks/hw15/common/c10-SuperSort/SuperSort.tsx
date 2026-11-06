@@ -1,6 +1,5 @@
 import React from 'react'
 
-// добавить в проект иконки и импортировать
 const downIcon = '[\\/]'
 const upIcon = '[/\\]'
 const noneIcon = '[--]'
@@ -13,15 +12,12 @@ export type SuperSortPropsType = {
 }
 
 export const pureChange = (sort: string, down: string, up: string) => {
-  // Если текущая сортировка совпадает с down, переключаем на up
   if (sort === down) {
     return up
   }
-  // Если текущая сортировка совпадает с up, сбрасываем её (возвращаем пустую строку)
   if (sort === up) {
     return ''
   }
-  // В любом другом случае (если сортировки нет или она была по другому полю), включаем down
   return down
 }
 
